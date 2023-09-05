@@ -1,7 +1,7 @@
 import express from 'express';
 import AppController from '../controllers/AppController';
 import UsersController from '../controllers/UsersController';
-// import AuthController from '../controllers/AuthController';
+import AuthController from '../controllers/AuthController';
 // import FilesController from '../controllers/FilesController';
 function controllerRoutes(app) {
   const router = express.Router();
@@ -30,19 +30,19 @@ function controllerRoutes(app) {
   router.get('/users/me', (req, res) => {
     UsersController.getMe(req, res);
   });
+
+  // Auth Controller
+
+  // should sign-in the user by generating a new authentication token
+  router.get('/connect', (req, res) => {
+    AuthController.getConnect(req, res);
+  });
+
+  // should sign-out the user based on the token
+  router.get('/disconnect', (req, res) => {
+    AuthController.getDisconnect(req, res);
+  });
 }
-// Auth Controller
-
-// should sign-in the user by generating a new authentication token
-// router.get('/connect', (req, res) => {
-// AuthController.getConnect(req, res);
-// });
-
-// should sign-out the user based on the token
-// router.get('/disconnect', (req, res) => {
-//  AuthController.getDisconnect(req, res);
-// });
-
 // Files Controller
 
 // should create a new file in DB and in disk
