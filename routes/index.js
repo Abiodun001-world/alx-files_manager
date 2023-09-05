@@ -19,7 +19,7 @@ function controllerRoutes(app) {
   router.get('/stats', (req, res) => {
     AppController.getStats(req, res);
   });
-}
+
 // User Controller
 
 // should create a new user in DB
@@ -31,7 +31,7 @@ function controllerRoutes(app) {
 router.get('/users/me', (req, res) => {
 UsersController.getMe(req, res);
  });
-
+}
 // Auth Controller
 
 // should sign-in the user by generating a new authentication token
